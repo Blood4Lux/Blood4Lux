@@ -1,0 +1,50 @@
+package com.example.blood4lux.Activities;
+
+import android.content.Intent;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+
+import com.example.blood4lux.R;
+
+public class RegisterActivity extends AppCompatActivity {
+
+    private EditText nameEt, placeEt, bloodGroupEt, passwordEt, contactEt;
+    private Button submitButton;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_register);
+        nameEt = findViewById(R.id.name);
+        placeEt = findViewById(R.id.place);
+        bloodGroupEt = findViewById(R.id.blood_group);
+        passwordEt = findViewById(R.id.password);
+        contactEt = findViewById(R.id.number);
+        submitButton = findViewById(R.id.submit_button);
+        submitButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String name, place, blood_group, password, contact;
+                name = nameEt.getText().toString();
+                place = placeEt.getText().toString();
+                blood_group = bloodGroupEt.getText().toString();
+                password = passwordEt.getText().toString();
+                contact = contactEt.getText().toString();
+                showMessage(  name+"/n"+place+"/n"+blood_group+"/n"+password+"/n"+contact);
+
+                }
+        });
+
+    }
+
+    private void showMessage(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+
+
+}

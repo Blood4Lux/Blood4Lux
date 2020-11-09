@@ -1,0 +1,21 @@
+<?php
+    require 'init.php';
+    $Name = $_POST["Name"];
+    $Blood_Group = $_POST["Blood_Group"];
+    $Commune = $_POST["Commune"];
+    $Contact_Number = $_POST["Contact_Number"];
+    $Password = $_POST["Password"];
+  
+   
+
+    
+    $sql = "INSERT INTO user_table (Name, Blood_Group, Commune, Contact_Number, Password) VALUES('$Name', '$Blood_Group', '$Commune', '$Contact_Number', '$Password')";
+    
+    $result = mysqli_query($con, $sql);
+    if($result){
+        echo "Success";
+    }else{
+        echo "Error: ".mysqli_error($con);
+    }
+    mysqli_close($con);
+?>
